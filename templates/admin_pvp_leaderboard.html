@@ -1,0 +1,37 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+
+<h1>PvP Leaderboard</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Player</th>
+                <th>Multiplayer Level</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for player in leaderboard %}
+
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ player.username }}</td>
+            <td>{{ player.player_name }}</td>
+            <td>{{ player.multiplayer_level }}</td>
+            <td>{{ player.points }}</td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
