@@ -1,0 +1,109 @@
+{
+  "seasons": [
+    {
+      "id": "season15_permanent_bans",
+      "name": "Season 15 - Permanent Bans",
+      "start_date": "2026-04-06T00:00:00Z",
+      "end_date": "2026-05-03T23:59:59Z",
+      "banned_creatures": [],
+      "banned_leaders": [
+        "Leader_CoolerJake"
+      ],
+      "_comment": "Cooler Jake is banned for the entire season"
+    },
+    {
+      "id": "season15_week1_april06",
+      "name": "Season 15 - Week 1 (Apr 06-13)",
+      "start_date": "2026-04-06T00:00:00Z",
+      "end_date": "2026-04-13T23:59:59Z",
+      "banned_creatures": [
+        "HuskerKnight_Awaken",
+        "EmbarrassingBard_Awaken"
+      ],
+      "banned_leaders": [],
+      "_comment": "Week 1: Ban Husker Knight and Embarrassing Bard"
+    },
+    {
+      "id": "season15_week2_april14",
+      "name": "Season 15 - Week 2 (Apr 14-20)",
+      "start_date": "2026-04-14T00:00:00Z",
+      "end_date": "2026-04-20T23:59:59Z",
+      "banned_creatures": [
+        "PyramidTheKid_Awaken",
+        "Pieclops_Awaken"
+      ],
+      "banned_leaders": [],
+      "_comment": "Week 2: Ban Pyramid The Kid and Pieclops"
+    },
+    {
+      "id": "season15_week3_april21",
+      "name": "Season 15 - Week 3 (Apr 21-27)",
+      "start_date": "2026-04-21T00:00:00Z",
+      "end_date": "2026-04-27T23:59:59Z",
+      "banned_creatures": [
+        "HuskerKnight_Awaken",
+        "PyramidTheKid_Awaken"
+      ],
+      "banned_leaders": [],
+      "_comment": "Week 3: Ban Husker Knight and Pyramid The Kid"
+    },
+    {
+      "id": "season15_week4_april28",
+      "name": "Season 15 - Week 4 (Apr 28 - May 03)",
+      "start_date": "2026-04-28T00:00:00Z",
+      "end_date": "2026-05-03T23:59:59Z",
+      "banned_creatures": [
+        "EmbarrassingBard_Awaken",
+        "Pieclops_Awaken"
+      ],
+      "banned_leaders": [],
+      "_comment": "Week 4: Ban Embarrassing Bard and Pieclops - REPEAT rotation after this"
+    },
+    {
+      "id": "global_permanent_bans",
+      "name": "Permanent Bans (All Seasons)",
+      "start_date": "2020-01-01T00:00:00Z",
+      "end_date": "2099-12-31T23:59:59Z",
+      "banned_creatures": [],
+      "banned_leaders": [],
+      "_comment": "Add any units that should ALWAYS be banned here"
+    }
+  ],
+  "_documentation": {
+    "how_this_works": {
+      "1": "Each week, a different pair of creatures is banned",
+      "2": "Cooler Jake (leader) is banned for the entire Season 14",
+      "3": "The server automatically activates bans based on current UTC time",
+      "4": "Multiple active ban periods combine (e.g., week1 creatures + permanent leaders)"
+    },
+    "creature_id_mapping": {
+      "HuskerKnight_Awaken": "#75 Husker Knight",
+      "EmbarrassingBard_Awaken": "#175 Embarrassing Bard",
+      "PyramidTheKid_Awaken": "#319 Pyramid The Kid",
+      "Pieclops_Awaken": "#385 Pieclops"
+    },
+    "leader_id_mapping": {
+      "Leader_CoolerJake": "Cooler Jake"
+    },
+    "rotation_schedule": {
+      "week1": "Husker Knight + Embarrassing Bard",
+      "week2": "Pyramid The Kid + Pieclops",
+      "week3": "Husker Knight + Pyramid The Kid",
+      "week4": "Embarrassing Bard + Pieclops",
+      "then": "Repeat 4-week cycle"
+    },
+    "how_to_extend": {
+      "step1": "Copy week4 ban period",
+      "step2": "Increment week number in id and name",
+      "step3": "Update start_date and end_date (7 days apart)",
+      "step4": "Choose which 2 creatures to ban from the rotation",
+      "step5": "Save file - changes take effect immediately!"
+    },
+    "admin_tips": {
+      "viewing_active_bans": "Visit /persist/static/pvp_banlist to see currently active bans",
+      "testing_dates": "Change dates to test different ban periods (use past dates to verify expired bans don't apply)",
+      "emergency_disable": "Set end_date to past date to immediately disable a ban period",
+      "all_bans_active": "To ban all 4 creatures at once, set one period with all IDs in banned_creatures array"
+    }
+  }
+}
