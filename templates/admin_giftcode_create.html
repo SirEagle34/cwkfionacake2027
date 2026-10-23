@@ -1,0 +1,591 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="redeem-create">
+<div class="create-hero p-4 p-lg-5 mb-4"><div class="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-center"><div><div class="small text-info text-uppercase fw-bold mb-2"><i class="bi bi-magic"></i> Reward Builder</div><h1 class="fw-bold mb-2">Create Redeem Code</h1><div class="text-body-secondary">Build a redeem code compatible with the Unity server-reward protocol.</div></div><a class="btn btn-outline-secondary" href="/admin/gift-codes"><i class="bi bi-arrow-left"></i> Back</a></div></div>
+
+<style>
+.redeem-create{--p:#7c5cff;--c:#20d9ff;--g:#36e39a}
+.create-hero,.create-section,.summary-card{border:1px solid rgba(124,92,255,.25);border-radius:18px;background:rgba(12,15,27,.72);box-shadow:0 0 30px rgba(124,92,255,.08)}
+.create-hero{background:radial-gradient(circle at 0 0,rgba(124,92,255,.18),transparent 40%),rgba(12,15,27,.78)}
+.section-head{padding:17px 20px;border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(90deg,rgba(124,92,255,.10),transparent)}
+.section-number{width:34px;height:34px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:rgba(124,92,255,.15);color:#c9c0ff;font-weight:800}
+.create-section{overflow:hidden}.catalog-results{max-height:320px;overflow:auto}
+.catalog-item,.selected-reward{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px;background:rgba(255,255,255,.025);transition:.18s}
+.catalog-item{cursor:pointer}.catalog-item:hover{border-color:rgba(32,217,255,.35);background:rgba(32,217,255,.05);transform:translateX(2px)}
+.selected-reward{border-color:rgba(54,227,154,.20);background:rgba(54,227,154,.035)}
+.form-control:focus{border-color:rgba(124,92,255,.6);box-shadow:0 0 0 .2rem rgba(124,92,255,.12)}
+.code-input{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:800;letter-spacing:.1em}
+.small-muted{color:rgba(255,255,255,.55);font-size:.82rem}.sticky-summary{position:sticky;top:18px}
+.summary-card{border-color:rgba(32,217,255,.18);background:radial-gradient(circle at 100% 0,rgba(32,217,255,.09),transparent 40%),rgba(12,15,27,.78)}
+.summary-line{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.summary-line:last-child{border-bottom:0}.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:#36e39a;box-shadow:0 0 10px rgba(54,227,154,.7)}
+</style>
+
+<form method="post" id="giftCodeForm">
+<div class="create-section mb-4"><div class="section-head d-flex align-items-center gap-3"><span class="section-number">01</span><div><h5 class="mb-0">Code Details</h5><div class="small-muted">Identity and player-facing message</div></div></div><div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Redeem Code</label>
+                <input class="form-control text-uppercase" name="code" placeholder="HALLOWEEN26" required maxlength="64">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Subject</label>
+                <input class="form-control" name="subject" placeholder="Halloween Gift">
+            </div>
+            <div class="col-12">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name="message" rows="2" placeholder="Happy Halloween!"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="create-section mb-4"><div class="section-head d-flex align-items-center gap-3"><span class="section-number">02</span><div><h5 class="mb-0">Availability & Limits</h5><div class="small-muted">Control when and how often the code can be claimed</div></div></div><div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Max Uses</label>
+                <input class="form-control" type="number" name="max_uses" value="0" min="0">
+                <div class="form-text">0 = unlimited.</div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Start Date</label>
+                <input class="form-control" type="datetime-local" name="start_date">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">End Date</label>
+                <input class="form-control" type="datetime-local" name="end_date">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="create-section mb-4"><div class="section-head d-flex align-items-center gap-3"><span class="section-number">03</span><div><h5 class="mb-0">Currencies</h5><div class="small-muted">Coins and Gems supported by the client</div></div></div><div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Soft Currency / Coins</label>
+                <input class="form-control" type="number" name="soft_currency" value="0" min="0">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Free Hard Currency / Gems</label>
+                <input class="form-control" type="number" name="free_hard_currency" value="0" min="0">
+            </div>
+            <div class="col-md-4"><div class="alert alert-info h-100 mb-0 small"><i class="bi bi-info-circle"></i> Paid Hard Currency is hidden because the supplied Unity client does not consume it.</div></div>
+        </div>
+    </div>
+</div>
+
+<div class="create-section mb-4"><div class="section-head d-flex align-items-center gap-3"><span class="section-number">04</span><div><h5 class="mb-0">Creature Rewards</h5><div class="small-muted">Search and add creature rewards</div></div></div><div class="card-body">
+        <p class="text-body-secondary small">
+            Search by Creature ID or Name. Select a creature and set amount/star rating.
+        </p>
+
+        <div class="row g-2 mb-3">
+            <div class="col-md-8">
+                <input
+                    class="form-control"
+                    id="creatureSearch"
+                    type="search"
+                    placeholder="Search Creature ID or Name..."
+                    autocomplete="off">
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-outline-primary w-100" type="button" id="reloadCreatures">
+                    <i class="bi bi-arrow-clockwise"></i> Reload Creatures
+                </button>
+            </div>
+        </div>
+
+        <div id="creatureStatus" class="small text-body-secondary mb-2">
+            Loading creature database...
+        </div>
+
+        <div id="creatureResults" class="catalog-results mb-3"></div>
+
+        <div id="creatureSelected" class="d-flex flex-column gap-2"></div>
+
+        <input type="hidden" name="creatures_json" id="creaturesJson">
+    </div>
+</div>
+
+<div class="create-section mb-4"><div class="section-head d-flex align-items-center gap-3"><span class="section-number">05</span><div><h5 class="mb-0">Action Card Rewards</h5><div class="small-muted">Search and add ExCards</div></div></div><div class="card-body">
+        <p class="text-body-secondary small">
+            Search by Action Card ID or Name and select the cards to give.
+        </p>
+
+        <div class="row g-2 mb-3">
+            <div class="col-md-8">
+                <input
+                    class="form-control"
+                    id="actionCardSearch"
+                    type="search"
+                    placeholder="Search Action Card ID or Name..."
+                    autocomplete="off">
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-outline-primary w-100" type="button" id="reloadActionCards">
+                    <i class="bi bi-arrow-clockwise"></i> Reload Action Cards
+                </button>
+            </div>
+        </div>
+
+        <div id="actionCardStatus" class="small text-body-secondary mb-2">
+            Loading action card database...
+        </div>
+
+        <div id="actionCardResults" class="catalog-results mb-3"></div>
+
+        <div id="actionCardSelected" class="d-flex flex-column gap-2"></div>
+
+        <input type="hidden" name="action_cards_json" id="actionCardsJson">
+    </div>
+</div>
+
+<button class="btn btn-primary btn-lg" type="submit">
+    <i class="bi bi-gift"></i> Create Gift Code
+</button>
+</form>
+
+<script>
+(function () {
+    "use strict";
+
+    let creatures = [];
+    let actionCards = [];
+
+    const selectedCreatures = [];
+    const selectedActionCards = [];
+
+    const creatureSearch = document.getElementById("creatureSearch");
+    const creatureResults = document.getElementById("creatureResults");
+    const creatureSelected = document.getElementById("creatureSelected");
+    const creatureStatus = document.getElementById("creatureStatus");
+    const creaturesJson = document.getElementById("creaturesJson");
+
+    const actionCardSearch = document.getElementById("actionCardSearch");
+    const actionCardResults = document.getElementById("actionCardResults");
+    const actionCardSelected = document.getElementById("actionCardSelected");
+    const actionCardStatus = document.getElementById("actionCardStatus");
+    const actionCardsJson = document.getElementById("actionCardsJson");
+
+    function escapeHtml(value) {
+        return String(value === undefined || value === null ? "" : value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function normalize(value) {
+        return String(value || "").toLowerCase().trim();
+    }
+
+    function catalogMatches(item, search) {
+        if (!search) {
+            return true;
+        }
+
+        const query = normalize(search);
+
+        return normalize(item.ID).includes(query) ||
+               normalize(item.Name).includes(query);
+    }
+
+    function updateCreatureJson() {
+        creaturesJson.value = JSON.stringify(
+            selectedCreatures.map(function (item) {
+                return {
+                    id: item.id,
+                    amount: item.amount,
+                    star_rating: item.star_rating
+                };
+            })
+        );
+    }
+
+    function updateActionCardJson() {
+        actionCardsJson.value = JSON.stringify(
+            selectedActionCards.map(function (item) {
+                return {
+                    id: item.id,
+                    amount: item.amount
+                };
+            })
+        );
+    }
+
+    function renderCreatureResults() {
+        const search = creatureSearch.value;
+
+        const matches = creatures
+            .filter(function (item) {
+                return catalogMatches(item, search);
+            })
+            .slice(0, 100);
+
+        if (!matches.length) {
+            creatureResults.innerHTML =
+                '<div class="text-body-secondary small p-2">No creatures found.</div>';
+            return;
+        }
+
+        creatureResults.innerHTML = matches.map(function (item) {
+            return (
+                '<div class="catalog-item reward-row mb-2" data-creature-id="' +
+                escapeHtml(item.ID) +
+                '">' +
+                    '<div class="d-flex justify-content-between align-items-center">' +
+                        '<div>' +
+                            '<strong>' + escapeHtml(item.Name || item.ID) + '</strong>' +
+                            '<div class="small text-body-secondary">' +
+                                escapeHtml(item.ID) +
+                                (item.Faction ? " · " + escapeHtml(item.Faction) : "") +
+                                (item.Rarity !== undefined ? " · Rarity " + escapeHtml(item.Rarity) : "") +
+                            '</div>' +
+                        '</div>' +
+                        '<button type="button" class="btn btn-sm btn-outline-primary">Select</button>' +
+                    '</div>' +
+                '</div>'
+            );
+        }).join("");
+    }
+
+    function renderActionCardResults() {
+        const search = actionCardSearch.value;
+
+        const matches = actionCards
+            .filter(function (item) {
+                return catalogMatches(item, search);
+            })
+            .slice(0, 100);
+
+        if (!matches.length) {
+            actionCardResults.innerHTML =
+                '<div class="text-body-secondary small p-2">No action cards found.</div>';
+            return;
+        }
+
+        actionCardResults.innerHTML = matches.map(function (item) {
+            return (
+                '<div class="catalog-item reward-row mb-2" data-action-card-id="' +
+                escapeHtml(item.ID) +
+                '">' +
+                    '<div class="d-flex justify-content-between align-items-center">' +
+                        '<div>' +
+                            '<strong>' + escapeHtml(item.Name || item.ID) + '</strong>' +
+                            '<div class="small text-body-secondary">' +
+                                escapeHtml(item.ID) +
+                                (item.TypeText ? " · " + escapeHtml(item.TypeText) : "") +
+                                (item.Faction ? " · " + escapeHtml(item.Faction) : "") +
+                            '</div>' +
+                        '</div>' +
+                        '<button type="button" class="btn btn-sm btn-outline-primary">Select</button>' +
+                    '</div>' +
+                '</div>'
+            );
+        }).join("");
+    }
+
+    function renderSelectedCreatures() {
+        if (!selectedCreatures.length) {
+            creatureSelected.innerHTML =
+                '<div class="text-body-secondary small">No creatures selected.</div>';
+            updateCreatureJson();
+            return;
+        }
+
+        creatureSelected.innerHTML = selectedCreatures.map(function (item, index) {
+            return (
+                '<div class="selected-reward">' +
+                    '<div class="row g-2 align-items-end">' +
+                        '<div class="col-md-5">' +
+                            '<div class="fw-semibold">' + escapeHtml(item.name || item.id) + '</div>' +
+                            '<div class="small text-body-secondary">' + escapeHtml(item.id) + '</div>' +
+                        '</div>' +
+                        '<div class="col-md-2">' +
+                            '<label class="form-label small mb-1">Amount</label>' +
+                            '<input class="form-control form-control-sm creature-amount" type="number" min="1" value="' +
+                                escapeHtml(item.amount) +
+                            '" data-index="' + index + '">' +
+                        '</div>' +
+                        '<div class="col-md-2">' +
+                            '<label class="form-label small mb-1">Star Rating</label>' +
+                            '<input class="form-control form-control-sm creature-star" type="number" min="1" max="6" value="' +
+                                escapeHtml(item.star_rating) +
+                            '" data-index="' + index + '">' +
+                        '</div>' +
+                        '<div class="col-md-3">' +
+                            '<button type="button" class="btn btn-sm btn-outline-danger w-100 creature-remove" data-index="' +
+                                index +
+                            '">' +
+                                '<i class="bi bi-trash"></i> Remove' +
+                            '</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }).join("");
+
+        updateCreatureJson();
+    }
+
+    function renderSelectedActionCards() {
+        if (!selectedActionCards.length) {
+            actionCardSelected.innerHTML =
+                '<div class="text-body-secondary small">No action cards selected.</div>';
+            updateActionCardJson();
+            return;
+        }
+
+        actionCardSelected.innerHTML = selectedActionCards.map(function (item, index) {
+            return (
+                '<div class="selected-reward">' +
+                    '<div class="row g-2 align-items-end">' +
+                        '<div class="col-md-8">' +
+                            '<div class="fw-semibold">' + escapeHtml(item.name || item.id) + '</div>' +
+                            '<div class="small text-body-secondary">' + escapeHtml(item.id) + '</div>' +
+                        '</div>' +
+                        '<div class="col-md-2">' +
+                            '<label class="form-label small mb-1">Amount</label>' +
+                            '<input class="form-control form-control-sm action-card-amount" type="number" min="1" value="' +
+                                escapeHtml(item.amount) +
+                            '" data-index="' + index + '">' +
+                        '</div>' +
+                        '<div class="col-md-2">' +
+                            '<button type="button" class="btn btn-sm btn-outline-danger w-100 action-card-remove" data-index="' +
+                                index +
+                            '">' +
+                                '<i class="bi bi-trash"></i> Remove' +
+                            '</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }).join("");
+
+        updateActionCardJson();
+    }
+
+    function selectCreature(item) {
+        const existing = selectedCreatures.find(function (reward) {
+            return reward.id === item.ID;
+        });
+
+        if (existing) {
+            existing.amount += 1;
+            renderSelectedCreatures();
+            return;
+        }
+
+        selectedCreatures.push({
+            id: item.ID,
+            name: item.Name || item.ID,
+            amount: 1,
+            star_rating: 1
+        });
+
+        renderSelectedCreatures();
+    }
+
+    function selectActionCard(item) {
+        const existing = selectedActionCards.find(function (reward) {
+            return reward.id === item.ID;
+        });
+
+        if (existing) {
+            existing.amount += 1;
+            renderSelectedActionCards();
+            return;
+        }
+
+        selectedActionCards.push({
+            id: item.ID,
+            name: item.Name || item.ID,
+            amount: 1
+        });
+
+        renderSelectedActionCards();
+    }
+
+    async function loadCatalog(url, statusElement, onSuccess) {
+        statusElement.textContent = "Loading...";
+
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                credentials: "same-origin",
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(data.error || "Catalog request failed.");
+            }
+
+            onSuccess(Array.isArray(data.items) ? data.items : []);
+        } catch (error) {
+            statusElement.textContent = "Failed to load catalog: " + error.message;
+        }
+    }
+
+    async function loadCreatures() {
+        await loadCatalog(
+            "/admin/gift-codes/catalog/creatures",
+            creatureStatus,
+            function (items) {
+                creatures = items;
+                creatureStatus.textContent =
+                    creatures.length + " creatures loaded.";
+                renderCreatureResults();
+            }
+        );
+    }
+
+    async function loadActionCards() {
+        await loadCatalog(
+            "/admin/gift-codes/catalog/action-cards",
+            actionCardStatus,
+            function (items) {
+                actionCards = items;
+                actionCardStatus.textContent =
+                    actionCards.length + " action cards loaded.";
+                renderActionCardResults();
+            }
+        );
+    }
+
+    creatureSearch.addEventListener("input", renderCreatureResults);
+    actionCardSearch.addEventListener("input", renderActionCardResults);
+
+    creatureResults.addEventListener("click", function (event) {
+        const row = event.target.closest("[data-creature-id]");
+
+        if (!row) {
+            return;
+        }
+
+        const id = row.getAttribute("data-creature-id");
+
+        const item = creatures.find(function (entry) {
+            return String(entry.ID) === String(id);
+        });
+
+        if (item) {
+            selectCreature(item);
+        }
+    });
+
+    actionCardResults.addEventListener("click", function (event) {
+        const row = event.target.closest("[data-action-card-id]");
+
+        if (!row) {
+            return;
+        }
+
+        const id = row.getAttribute("data-action-card-id");
+
+        const item = actionCards.find(function (entry) {
+            return String(entry.ID) === String(id);
+        });
+
+        if (item) {
+            selectActionCard(item);
+        }
+    });
+
+    creatureSelected.addEventListener("input", function (event) {
+        const index = Number(event.target.getAttribute("data-index"));
+
+        if (Number.isNaN(index) || !selectedCreatures[index]) {
+            return;
+        }
+
+        if (event.target.classList.contains("creature-amount")) {
+            selectedCreatures[index].amount =
+                Math.max(1, Number(event.target.value) || 1);
+        }
+
+        if (event.target.classList.contains("creature-star")) {
+            selectedCreatures[index].star_rating =
+                Math.min(6, Math.max(1, Number(event.target.value) || 1));
+        }
+
+        updateCreatureJson();
+    });
+
+    creatureSelected.addEventListener("click", function (event) {
+        const button = event.target.closest(".creature-remove");
+
+        if (!button) {
+            return;
+        }
+
+        const index = Number(button.getAttribute("data-index"));
+
+        if (!Number.isNaN(index)) {
+            selectedCreatures.splice(index, 1);
+            renderSelectedCreatures();
+        }
+    });
+
+    actionCardSelected.addEventListener("input", function (event) {
+        if (!event.target.classList.contains("action-card-amount")) {
+            return;
+        }
+
+        const index = Number(event.target.getAttribute("data-index"));
+
+        if (Number.isNaN(index) || !selectedActionCards[index]) {
+            return;
+        }
+
+        selectedActionCards[index].amount =
+            Math.max(1, Number(event.target.value) || 1);
+
+        updateActionCardJson();
+    });
+
+    actionCardSelected.addEventListener("click", function (event) {
+        const button = event.target.closest(".action-card-remove");
+
+        if (!button) {
+            return;
+        }
+
+        const index = Number(button.getAttribute("data-index"));
+
+        if (!Number.isNaN(index)) {
+            selectedActionCards.splice(index, 1);
+            renderSelectedActionCards();
+        }
+    });
+
+    document.getElementById("reloadCreatures").addEventListener(
+        "click",
+        loadCreatures
+    );
+
+    document.getElementById("reloadActionCards").addEventListener(
+        "click",
+        loadActionCards
+    );
+
+    document.getElementById("giftCodeForm").addEventListener(
+        "submit",
+        function () {
+            updateCreatureJson();
+            updateActionCardJson();
+        }
+    );
+
+    renderSelectedCreatures();
+    renderSelectedActionCards();
+
+    loadCreatures();
+    loadActionCards();
+})();
+</script>
+{% endblock %}

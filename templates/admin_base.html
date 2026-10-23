@@ -190,6 +190,12 @@
 								</a>
 								</li>
 								<li class="nav-item">
+								<a class="nav-link d-flex align-items-center gap-2" href="/admin/databases">
+									<i class="bi bi-database"></i>
+									Database Manager
+								</a>
+								</li>
+								<li class="nav-item">
 								<a class="nav-link d-flex align-items-center gap-2" href="/admin/server">
 									<svg class="bi"><use xlink:href="#cart"/></svg>
 									Server Updates / Backups
@@ -208,6 +214,22 @@
 								</a>
 								</li>
 								{% endif %}
+								<li class="nav-item">
+								<a class="nav-link d-flex align-items-center gap-2" href="/admin/createbalancer">
+                                    <i class="bi bi-person-lock"></i>
+                                    Create Balancer Account
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2" href="/balancer/">
+									<svg class="bi"><use xlink:href="#graph-up"/></svg>
+									Balancer Panel
+								</a>
+								</li>
+								<li class="nav-item">
+								<a class="nav-link d-flex align-items-center gap-2" href="/admin/gift-codes">
+									<svg class="bi"><use xlink:href="#gift"/></svg>
+									Gift Codes
+								</a>
+								</li>
 								<li class="nav-item">
 								<a class="nav-link d-flex align-items-center gap-2" href="/admin/players">
 									<svg class="bi"><use xlink:href="#people"/></svg>
@@ -245,15 +267,40 @@
 								</a>
 								</li>
 							</ul>
-							<hr class="my-3">
-							<ul class="nav flex-column mb-auto">
-								<li class="nav-item">
-								<a class="nav-link d-flex align-items-center gap-2" href="/admin/logout">
-									<svg class="bi"><use xlink:href="#door-closed"/></svg>
-									Sign out
-								</a>
-								</li>
-							</ul>
+                            <hr class="my-3">
+
+                            <ul class="nav flex-column mb-auto">
+
+                                <!-- Secret Profile -->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-2"
+                                       href="/admin/secretprofile">
+
+                                        <svg class="bi">
+                                            <use xlink:href="#person-badge"/>
+                                        </svg>
+
+                                        Secret Profile
+
+                                    </a>
+                                </li>
+
+
+                                <!-- Sign Out -->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-2"
+                                       href="/admin/logout">
+
+                                        <svg class="bi">
+                                            <use xlink:href="#door-closed"/>
+                                        </svg>
+
+                                        Sign out
+
+                                    </a>
+                                </li>
+
+                            </ul>
 						</div>
 					</div>
 				</div>

@@ -1,0 +1,50 @@
+{% extends "balancer_base.html" %}
+{% block title %}Blueprint Editor · CWK Balancer{% endblock %}
+{% block content %}
+<style>
+  .editor-hero{border-radius:16px;padding:1.4rem;background:linear-gradient(125deg,#101827,#243b53);margin-bottom:1.25rem}
+  .editor-panel{background:var(--bs-body-bg);border:1px solid var(--bs-border-color);border-radius:14px;padding:1rem;margin-bottom:1rem}
+  .record-json{min-height:58vh;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.875rem;tab-size:4}
+</style>
+<div class="editor-hero">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div><div class="small text-uppercase opacity-75">Card Wars Kingdom · Blueprint Tools</div><h1 class="h2 mt-2 mb-1">Creature & Action Card Editor</h1><p class="mb-0 text-white-50">Edit stats and mechanics; unknown fields are preserved in the JSON.</p></div>
+    <a class="btn btn-outline-light" href="/balancer/"><i class="bi bi-arrow-left me-1"></i> Back to Balancer</a>
+  </div>
+</div>
+{% if error %}<div class="alert alert-danger"><strong>Kaydedilmedi:</strong> {{ error }}</div>{% endif %}
+{% if success %}<div class="alert alert-success">{{ success }}</div>{% endif %}
+<div class="editor-panel">
+  <form method="get" action="/balancer/editor" class="row g-3 align-items-end">
+    <div class="col-md-4"><label class="form-label" for="dataset">Blueprint</label><select class="form-select" id="dataset" name="dataset" onchange="this.form.submit()"><option value="creatures" {{ 'selected' if dataset == 'creatures' else '' }}>Creatures · db_Creatures.json</option><option value="action_cards" {{ 'selected' if dataset == 'action_cards' else '' }}>Action Cards · db_ActionCards.json</option></select></div>
+    <div class="col-md-6"><label class="form-label" for="record_id">Record (ID · Name)</label><select class="form-select" id="record_id" name="record_id" required>{% for item in record_options %}<option value="{{ item.id }}" {{ 'selected' if item.id == selected_id else '' }}>{{ item.display_id }}{% if item.name %} * {{ item.name }}{% endif %}</option>{% endfor %}</select></div>
+    <div class="col-md-2 d-grid"><button class="btn btn-primary" type="submit">Load record</button></div>
+  </form>
+</div>
+<div class="editor-panel">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label" for="local_name_key">{{ "Action Card Name Key" if dataset == "action_cards" else "Creature Name Key" }}</label>
+      <input class="form-control font-monospace" id="local_name_key" value="{{ selected_name_key }}" readonly>
+      <div class="form-text">The Name key in the JSON is resolved using the EN_Sheet1 localization file.</div>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="localized_name">English Name · EN_Sheet1</label>
+      <input class="form-control" id="localized_name" value="{{ selected_localized_name }}" readonly>
+      <div class="form-text">For a key such as <code>!!CoolDog_Awaken_NAME</code>, the matching value from EN_Sheet1.txt is displayed.</div>
+    </div>
+  </div>
+</div>
+<div class="editor-panel">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"><div><h2 class="h5 mb-1">Record JSON</h2><p class="small text-secondary mb-0">Only the object with the selected ID is changed. The ID must remain the same; the file is validated for JSON array and object types.</p></div><span class="badge text-bg-secondary">{{ record_options|length }} kayıt</span></div>
+  <form method="post" action="/balancer/editor">
+    <input type="hidden" name="dataset" value="{{ dataset }}">
+    <input type="hidden" name="record_id" value="{{ selected_id }}">
+    <textarea class="form-control record-json" id="record_json" name="record_json" spellcheck="false" required>{{ record_json }}</textarea>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mt-3">
+      <div class="small text-secondary">Creature: Min/Max HP, STR, DEF, INT, RES, DEX, costs, EvoTo, ActionCard1–6. Action Card: Cost, target filters, AttackNum, PlayScript, status/mechanics keys, etc.</div>
+      <button class="btn btn-success" type="submit" name="action" value="save_record" onclick="return confirm('Save the selected record to the blueprint JSON file?')"><i class="bi bi-save me-1"></i> Save record</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

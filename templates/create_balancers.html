@@ -1,0 +1,31 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom gap-2">
+  <div><h1 class="h2 mb-1">Create Balancer Account</h1><p class="text-muted mb-0">Creates a username and password separate from the admin account.</p></div>
+  <a class="btn btn-outline-secondary" href="/balancer/">Open Balancer</a>
+</div>
+{% if created %}<div class="alert alert-success">Balancer account <strong>{{ created }}</strong> was created.</div>{% endif %}
+{% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+<div class="card shadow-sm" style="max-width:680px">
+  <div class="card-body p-4">
+    <form method="post" autocomplete="off">
+      <div class="mb-3">
+        <label class="form-label" for="username">Balancer username</label>
+        <input class="form-control" type="text" id="username" name="username" minlength="3" maxlength="80" pattern="[A-Za-z0-9_.-]+" autocomplete="off" required>
+        <div class="form-text">3–80 characters; letters, numbers, periods, hyphens, and underscores.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="password">Şifre</label>
+        <input class="form-control" type="password" id="password" name="password" minlength="10" autocomplete="new-password" required>
+        <div class="form-text">At least 10 characters. Stored in the database as a bcrypt hash.</div>
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="confirm_password">Confirm password</label>
+        <input class="form-control" type="password" id="confirm_password" name="confirm_password" minlength="10" autocomplete="new-password" required>
+      </div>
+      <button class="btn btn-primary" type="submit">Create Balancer account</button>
+      <a class="btn btn-outline-secondary ms-2" href="/admin">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

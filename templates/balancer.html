@@ -1,0 +1,62 @@
+{% extends "balancer_base.html" %}
+{% block content %}
+<style>
+  .balancer-wrap{padding:1.5rem 0 3rem}
+  .balancer-hero{border-radius:18px;padding:1.5rem;background:linear-gradient(125deg,#101827,#243b53);color:#fff;margin-bottom:1.25rem}
+  .balancer-hero p{color:#c8d5e5;margin:0}
+  .balancer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1rem;margin:1rem 0}
+  .balancer-stat{border:1px solid var(--bs-border-color);border-radius:14px;padding:1rem;background:var(--bs-body-bg)}
+  .balancer-stat .num{font-size:1.65rem;font-weight:700}
+  .balancer-stat .label{color:var(--bs-secondary-color);font-size:.85rem}
+  .balancer-panel{border:1px solid var(--bs-border-color);border-radius:14px;padding:1rem;margin-bottom:1rem;background:var(--bs-body-bg)}
+  .balancer-table{font-size:.85rem;white-space:nowrap}
+  .balancer-table td{max-width:360px;overflow:hidden;text-overflow:ellipsis}
+  .balancer-overflow{overflow:auto;max-height:64vh}
+</style>
+<div class="balancer-wrap">
+  <div class="balancer-hero">
+    <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center">
+      <div><div class="text-uppercase small opacity-75">Card Wars Kingdom · Admin Tools</div><h1 class="h2 mt-2">Balancer Control Panel</h1><a class="btn btn-outline-light btn-sm mt-2" href="/balancer/editor"><i class="bi bi-pencil-square me-1"></i> Edit Creature / Action Card JSON</a><p>Creature balance, action-card integrity and Clash Royale reference data.</p></div>
+      <form method="post"><input type="hidden" name="action" value="refresh_api"><button class="btn btn-light" type="submit"><i class="bi bi-arrow-clockwise"></i> Refresh API</button></form>
+    </div>
+  </div>
+  {% if api_error %}<div class="alert alert-warning"><strong>Clash Royale API:</strong> {{ api_error }}<div class="small mt-1">CWK local JSON validation still runs when the external API is unavailable.</div></div>{% else %}<div class="alert alert-success">Clash Royale API connected. {{ api_count }} reference cards loaded.</div>{% endif %}
+  <div class="balancer-grid">
+    <div class="balancer-stat"><div class="label">Creatures scanned</div><div class="num">{{ report.creatures.total }}</div><div class="small text-secondary">db_Creatures.json</div></div>
+    <div class="balancer-stat"><div class="label">Action cards scanned</div><div class="num">{{ report.action_cards.total }}</div><div class="small text-secondary">db_ActionCards.json</div></div>
+    <div class="balancer-stat"><div class="label">Creature issues</div><div class="num">{{ report.creatures.duplicate_ids|length + report.creatures.missing_fields|length + report.creatures.invalid_numbers|length + report.creatures.broken_action_refs|length }}</div><div class="small text-secondary">IDs, stats and references</div></div>
+    <div class="balancer-stat"><div class="label">Action-card issues</div><div class="num">{{ report.action_cards.duplicate_ids|length + report.action_cards.missing_fields|length + report.action_cards.invalid_numbers|length }}</div><div class="small text-secondary">IDs, costs and numbers</div></div>
+    <div class="balancer-stat"><div class="label">Cross-game name matches</div><div class="num">{{ report.cross_game.matched }}</div><div class="small text-secondary">{{ report.cross_game.unmatched }} local records unmatched</div></div>
+  </div>
+  <div class="balancer-panel">
+    <form method="get" class="row g-2 align-items-end">
+      <div class="col-sm-8"><label class="form-label" for="q">Search by local ID, name or CR card name</label><input class="form-control" id="q" name="q" value="{{ query }}" placeholder="e.g. CoolDog, CORN_0001, Knight"></div>
+      <div class="col-sm-4 d-flex gap-2"><button class="btn btn-primary" type="submit">Search</button><a class="btn btn-outline-secondary" href="/balancer/">Clear</a></div>
+    </form>
+    <div class="small text-secondary mt-2">The Clash Royale API belongs to a different game; only name-based reference matching is attempted. Its stats are not automatically copied to CWK.</div>
+  </div>
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item"><a class="nav-link {{ 'active' if selected_tab == 'creatures' else '' }}" href="/balancer/?tab=creatures&amp;q={{ query|urlencode }}">Creatures</a></li>
+    <li class="nav-item"><a class="nav-link {{ 'active' if selected_tab == 'action_cards' else '' }}" href="/balancer/?tab=action_cards&amp;q={{ query|urlencode }}">Action Cards</a></li>
+    <li class="nav-item"><a class="nav-link {{ 'active' if selected_tab == 'matches' else '' }}" href="/balancer/?tab=matches&amp;q={{ query|urlencode }}">CR Reference Matches</a></li>
+  </ul>
+  {% if selected_tab == 'creatures' %}
+    <div class="balancer-panel"><h2 class="h5">Creature balance</h2><p class="small text-secondary">Showing up to 1,000 matching records. Values are read-only; source JSON is never changed by this page.</p><div class="balancer-overflow"><table class="table table-sm table-striped table-hover balancer-table"><thead><tr><th>ID</th><th>English Name</th><th>Deploy</th><th>Rarity</th><th>Bal HP</th><th>Bal STR</th><th>Bal INT</th><th>Bal DEX</th><th>Issues</th></tr></thead><tbody>{% for row in report.creatures.filtered_rows %}<tr><td>{{ row.display_id }}</td><td>{% if row.display_name and not row.display_name.startswith("!!") %}{{ row.display_name }}{% else %}<span class="text-secondary">—</span>{% endif %}</td><td>{{ row.deploy_cost }}</td><td>{{ row.rarity }}</td><td>{{ row.hp }}</td><td>{{ row.str }}</td><td>{{ row.int }}</td><td>{{ row.dex }}</td><td>{% if row.issues %}<span class="badge text-bg-warning">{{ row.issues }}</span>{% else %}<span class="badge text-bg-success">OK</span>{% endif %}</td></tr>{% else %}<tr><td colspan="9" class="text-center text-secondary">No records found.</td></tr>{% endfor %}</tbody></table></div></div>
+  {% elif selected_tab == 'action_cards' %}
+    <div class="balancer-panel"><h2 class="h5">Action-card balance</h2><p class="small text-secondary">Showing up to 1,000 matching records. Damage column uses DirectDamage, otherwise BurstSTR.</p><div class="balancer-overflow"><table class="table table-sm table-striped table-hover balancer-table"><thead><tr><th>ID</th><th>English Name</th><th>Cost</th><th>Rarity</th><th>Type</th><th>Faction</th><th>Damage / Burst</th><th>Issues</th></tr></thead><tbody>{% for row in report.action_cards.filtered_rows %}<tr><td>{{ row.id }}</td><td>{% if row.display_name and not row.display_name.startswith("!!") and row.display_name != row.name_key %}{{ row.display_name }}{% else %}<span class="text-secondary">—</span>{% endif %}</td><td>{{ row.cost }}</td><td>{{ row.rarity }}</td><td>{{ row.type }}</td><td>{{ row.faction }}</td><td>{{ row.damage }}</td><td>{% if row.issues %}<span class="badge text-bg-warning">{{ row.issues }}</span>{% else %}<span class="badge text-bg-success">OK</span>{% endif %}</td></tr>{% else %}<tr><td colspan="8" class="text-center text-secondary">No records found.</td></tr>{% endfor %}</tbody></table></div></div>
+  {% else %}
+    <div class="balancer-panel"><h2 class="h5">Clash Royale name-reference matches</h2><p class="small text-secondary">Exact/fuzzy name matches only. CWK creature and spell statistics are not semantically equivalent to Clash Royale values.</p><div class="balancer-overflow"><table class="table table-sm table-striped table-hover balancer-table"><thead><tr><th>CWK ID</th><th>English Name</th><th>Clash Royale Card</th><th>CR Elixir</th><th>CR Rarity</th><th>CR Type</th></tr></thead><tbody>{% for row in report.cross_game.filtered_matches %}<tr><td>{{ row.local_id }}</td><td>{% if row.local_name and not row.local_name.startswith("!!") %}{{ row.local_name }}{% else %}<span class="text-secondary">—</span>{% endif %}</td><td>{{ row.clash_royale_name }}</td><td>{{ row.elixir }}</td><td>{{ row.rarity }}</td><td>{{ row.type }}</td></tr>{% else %}<tr><td colspan="6" class="text-center text-secondary">No name matches. This is expected for game-specific cards.</td></tr>{% endfor %}</tbody></table></div></div>
+  {% endif %}
+  {% if report.creatures.duplicate_ids or report.action_cards.duplicate_ids or report.creatures.missing_fields or report.action_cards.missing_fields or report.creatures.invalid_numbers or report.action_cards.invalid_numbers or report.creatures.broken_action_refs %}
+  <div class="balancer-panel"><h2 class="h5 text-warning"><i class="bi bi-exclamation-triangle"></i> Validation details</h2>
+    {% if report.creatures.duplicate_ids %}<h3 class="h6">Duplicate creature IDs</h3><p>{{ report.creatures.duplicate_ids|join(', ') }}</p>{% endif %}
+    {% if report.action_cards.duplicate_ids %}<h3 class="h6">Duplicate action-card IDs</h3><p>{{ report.action_cards.duplicate_ids|join(', ') }}</p>{% endif %}
+    {% if report.creatures.missing_fields %}<h3 class="h6">Creature required fields missing (first 50)</h3><pre class="small">{{ report.creatures.missing_fields[:50]|tojson(indent=2) }}</pre>{% endif %}
+    {% if report.action_cards.missing_fields %}<h3 class="h6">Action-card required fields missing (first 50)</h3><pre class="small">{{ report.action_cards.missing_fields[:50]|tojson(indent=2) }}</pre>{% endif %}
+    {% if report.creatures.invalid_numbers %}<h3 class="h6">Creature numeric values invalid (first 50)</h3><pre class="small">{{ report.creatures.invalid_numbers[:50]|tojson(indent=2) }}</pre>{% endif %}
+    {% if report.action_cards.invalid_numbers %}<h3 class="h6">Action-card numeric values invalid (first 50)</h3><pre class="small">{{ report.action_cards.invalid_numbers[:50]|tojson(indent=2) }}</pre>{% endif %}
+    {% if report.creatures.broken_action_refs %}<h3 class="h6">Creature references to missing ActionCards (first 50)</h3><pre class="small">{{ report.creatures.broken_action_refs[:50]|tojson(indent=2) }}</pre>{% endif %}
+  </div>
+  {% else %}<div class="alert alert-success">No local JSON integrity issues detected.</div>{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Database Manager</h1>
+</div>
+<p class="text-muted">Manage Primary, LocalInstance and Archive databases from this admin template. Archive snapshots are read-only.</p>
+{% if message %}<div class="alert alert-success">{{ message }}</div>{% endif %}
+{% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+<div class="row g-3 mb-4">
+{% for database in databases %}
+<div class="col-12 col-xl-4"><div class="card h-100 {% if selected.id == database.id %}border-primary{% endif %}"><div class="card-body">
+<div class="d-flex justify-content-between align-items-start gap-2"><h5 class="card-title">{{ database.name }}</h5>
+<span class="badge {% if database.exists %}text-bg-success{% else %}text-bg-secondary{% endif %}">{% if database.exists %}Available{% else %}Missing{% endif %}</span></div>
+<p class="small text-muted">{{ database.type|capitalize }} database</p>
+<p class="mb-1">Players: {{ database.player_count if database.player_count is not none else '—' }}</p>
+<p class="mb-3">Size: {% if database.exists %}{{ (database.size / 1024 / 1024)|round(2) }} MB{% else %}—{% endif %}</p>
+{% if database.error %}<p class="small text-danger">{{ database.error }}</p>{% endif %}
+<a class="btn btn-outline-primary btn-sm" href="{{ url_for('AdminDatabases', database=database.id) }}">Manage</a>
+{% if database.exists and database.type != 'archive' %}
+<form method="post" class="d-inline" onsubmit="return confirm('Create an archive snapshot of this database?');">
+<input type="hidden" name="action" value="create_archive"><input type="hidden" name="database_id" value="{{ database.id }}">
+<button class="btn btn-outline-secondary btn-sm" type="submit">Create Archive</button></form>
+{% endif %}
+</div></div></div>
+{% endfor %}
+</div>
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3"><h4 class="mb-0">Players — {{ selected.name }}</h4>
+<form method="get" class="d-flex gap-2"><input type="hidden" name="database" value="{{ selected.id }}">
+<input class="form-control" name="q" value="{{ query }}" placeholder="Search username" maxlength="100"><button class="btn btn-primary" type="submit">Search</button></form></div>
+{% if not selected.exists %}<div class="alert alert-warning">Database file is missing. It will not be silently created or replaced.</div>
+{% elif not players %}<p class="text-muted">No matching player rows found, or this database has no compatible player table.</p>
+{% else %}<div class="table-responsive"><table class="table table-striped table-sm align-middle">
+<thead><tr>{% for key in players[0].keys() %}<th>{{ key|replace('_',' ')|title }}</th>{% endfor %}</tr></thead>
+<tbody>{% for player in players %}<tr>{% for key, value in player.items() %}<td>{{ value if value is not none else '—' }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
+<p class="small text-muted">Showing up to 100 rows. This view does not modify player records.</p>{% endif %}
+{% endblock %}

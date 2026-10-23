@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <link
+        href="/static/admin/bootstrap/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="/static/admin/sign-in.css"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+
+
+<main class="form-signin w-100 m-auto">
+
+    <form method="post">
+
+        <h1 class="h3 mb-3 fw-normal text-center">
+            Email Verification
+        </h1>
+
+
+        <p class="text-center">
+            Enter the 6-digit verification code
+            sent to your email address.
+        </p>
+
+
+        {% if error %}
+
+        <div class="alert alert-danger">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="form-floating mb-3">
+
+            <input
+                type="text"
+                class="form-control"
+                id="otp"
+                name="otp"
+                placeholder="123456"
+                maxlength="6"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                required
+            >
+
+            <label for="otp">
+                Verification Code
+            </label>
+
+        </div>
+
+
+        <button
+            class="btn btn-primary w-100 py-2"
+            type="submit"
+        >
+
+            Verify Login
+
+        </button>
+
+
+        <a
+            href="/admin"
+            class="btn btn-outline-secondary w-100 mt-2"
+        >
+
+            Cancel
+
+        </a>
+
+    </form>
+
+</main>
+
+
+</body>
+
+</html>

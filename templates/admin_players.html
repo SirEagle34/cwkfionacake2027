@@ -27,6 +27,7 @@
 					<th scope="col">Name</th>
 					<th scope="col">Rank</th>
 					<th scope="col">Last Online</th>
+					<th scope="col">Database</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,6 +37,7 @@
 					<td>{{ player.multiplayer_name }}</td>
 					<td>{{ player.leader_level }}</td>
 					<td>{{ player.last_online }}</td>
+					<td>{{ player.source_database|default('Primary') }}</td>
 					<td><a href="/admin/players/{{ player.username }}">View details</a></td>
 				</tr>
 				{% endfor %}

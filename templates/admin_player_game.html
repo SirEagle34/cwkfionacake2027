@@ -3,55 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Player Game</title>
+    <title>Edit Player Save</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 10px;
-            font-size: 14px;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 0;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
+        :root { color-scheme: light; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 24px; background: #f4f6f9; color: #212529; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 24px; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+        .top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+        .muted { color: #6c757d; font-size: 14px; }
+        .warning { border: 1px solid #f0d58a; background: #fff8e1; border-radius: 6px; padding: 12px 14px; margin: 16px 0; font-size: 14px; }
+        textarea { width: 100%; min-height: 55vh; box-sizing: border-box; border: 1px solid #ced4da; border-radius: 6px; padding: 14px; font: 13px/1.5 Consolas, Monaco, monospace; resize: vertical; tab-size: 4; }
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .button { display: inline-block; border: 0; border-radius: 6px; padding: 10px 16px; font-size: 14px; text-decoration: none; cursor: pointer; }
+        .save { background: #198754; color: #fff; }
+        .back { background: #6c757d; color: #fff; }
+        .save:hover { background: #157347; }
+        .back:hover { background: #5c636a; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Edit Player Game</h1>
-        <form action="/admin/players/{{player_id}}/game/edit" method="post">
-            <textarea rows="20" name="player_game">{{game}}</textarea>
-            <br>
-            <input type="submit" value="Save">
+    <main class="container">
+        <div class="top">
+            <div>
+                <h1 style="margin:0 0 8px">Edit Player Save</h1>
+                <div class="muted">Player ID: <strong>{{ player_id }}</strong></div>
+                <div class="muted">Database: {{ source_database|default('Primary / LocalInstance auto-routing') }}</div>
+            </div>
+            <a class="button back" href="/admin/players/{{ player_id }}">Back to player</a>
+        </div>
+        <div class="warning">
+            Changes are written directly to this player's saved game data. Keep the JSON valid and make a backup before editing.
+            Do not change the save's outer format unless you know the client supports it.
+        </div>
+        <form action="/admin/players/{{ player_id }}/game/edit" method="post" onsubmit="return confirm('Save changes to this player data?');">
+            <label for="player_game"><strong>Decoded save data (JSON)</strong></label>
+            <p class="muted">The stored Base64/GZIP payload is decoded automatically when this page opens and re-encoded when you save. Edit the JSON only; do not paste the compressed payload here.</p>
+            <textarea id="player_game" name="player_game" spellcheck="false" autocapitalize="off" autocomplete="off" required>{{ game }}</textarea>
+            <div class="actions">
+                <button class="button save" type="submit">Save changes</button>
+                <a class="button back" href="/admin/players/{{ player_id }}">Cancel</a>
+            </div>
         </form>
-    </div>
+    </main>
 </body>
 </html>

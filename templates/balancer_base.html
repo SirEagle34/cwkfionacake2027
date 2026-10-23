@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Balancer Panel · Card Wars Kingdom{% endblock %}</title>
+  <link href="/static/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    body{min-height:100vh;background:#0b1220;color:#e5edf8}
+    .balancer-navbar{background:#111c2e;border-bottom:1px solid #26364d}
+    .balancer-brand{font-weight:700;letter-spacing:.02em}
+    .balancer-shell{max-width:1600px;margin:0 auto;padding:1.25rem}
+    .balancer-footer{color:#8393aa;font-size:.8rem;padding:1rem 0 2rem}
+    .card,.table{--bs-card-bg:#111c2e}
+    .form-control,.form-select{background-color:#0c1627;border-color:#34445d;color:#e5edf8}
+    .form-control:focus,.form-select:focus{background-color:#0c1627;color:#fff}
+    .nav-tabs{--bs-nav-tabs-link-active-bg:#111c2e;--bs-nav-tabs-link-active-color:#fff;--bs-nav-tabs-link-active-border-color:#34445d #34445d #111c2e;--bs-nav-tabs-border-color:#34445d}
+    .nav-tabs .nav-link{color:#a9bad0}
+    .nav-tabs .nav-link.active{color:#fff}
+  </style>
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark balancer-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand balancer-brand" href="/balancer/"><i class="bi bi-sliders2-vertical me-2"></i>CWK Balancer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#balancerNavbar" aria-controls="balancerNavbar" aria-expanded="false" aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="balancerNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/balancer/"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/balancer/language-data"><i class="bi bi-translate me-1"></i>Language Data</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          {% if admin_name %}<span class="navbar-text"><i class="bi bi-person-circle me-1"></i>{{ admin_name }}</span>{% endif %}
+          <form method="post" action="/balancer/logout" class="m-0">
+            <button class="btn btn-outline-light btn-sm" type="submit"><i class="bi bi-box-arrow-right me-1"></i>Log out</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="balancer-shell">
+    {% block content %}{% endblock %}
+    <footer class="balancer-footer">Card Wars Kingdom · Balancer tools</footer>
+  </main>
+  <script src="/static/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

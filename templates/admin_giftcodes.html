@@ -1,0 +1,337 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+<style>
+.redeem-page {
+    --redeem-primary: #7c5cff;
+    --redeem-cyan: #20d9ff;
+    --redeem-green: #36e39a;
+    --redeem-red: #ff5577;
+    --redeem-card: rgba(16, 19, 34, .78);
+}
+
+.redeem-hero {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(124,92,255,.35);
+    background:
+        radial-gradient(circle at 10% 0%, rgba(124,92,255,.20), transparent 35%),
+        radial-gradient(circle at 90% 100%, rgba(32,217,255,.12), transparent 35%),
+        var(--redeem-card);
+    box-shadow: 0 0 45px rgba(124,92,255,.12);
+    border-radius: 22px;
+}
+
+.redeem-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.035) 50%, transparent 80%);
+    transform: translateX(-100%);
+    animation: redeem-scan 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes redeem-scan {
+    to { transform: translateX(100%); }
+}
+
+.redeem-title {
+    letter-spacing: .02em;
+    font-weight: 800;
+}
+
+.redeem-subtitle {
+    color: rgba(255,255,255,.62);
+}
+
+.stat-card {
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.035);
+    border-radius: 16px;
+    padding: 18px;
+    height: 100%;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(124,92,255,.35);
+    box-shadow: 0 0 24px rgba(124,92,255,.12);
+}
+
+.stat-label {
+    color: rgba(255,255,255,.55);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
+
+.stat-value {
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.redeem-card {
+    border: 1px solid rgba(124,92,255,.20);
+    background: rgba(12,15,27,.72);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.redeem-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(124,92,255,.42);
+    box-shadow: 0 0 30px rgba(124,92,255,.13);
+}
+
+.code-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(32,217,255,.28);
+    background: rgba(32,217,255,.08);
+    color: #b8f5ff;
+    border-radius: 10px;
+    padding: 7px 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.reward-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.09);
+    background: rgba(255,255,255,.035);
+    font-size: .78rem;
+}
+
+.reward-chip.gems { color: #b9a8ff; }
+.reward-chip.coins { color: #7fe8ff; }
+.reward-chip.items { color: #79efb6; }
+
+.usage-bar {
+    height: 6px;
+    background: rgba(255,255,255,.07);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.usage-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--redeem-primary), var(--redeem-cyan));
+    border-radius: inherit;
+}
+
+.empty-state {
+    border: 1px dashed rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(255,255,255,.025);
+}
+</style>
+
+<div class="redeem-page">
+
+    <div class="redeem-hero p-4 p-lg-5 mb-4">
+        <div class="d-flex flex-column flex-lg-row justify-content-between gap-4 align-items-lg-center position-relative">
+            <div>
+                <div class="text-uppercase small fw-bold text-info mb-2">
+                    <i class="bi bi-stars"></i> Reward Control Center
+                </div>
+                <h1 class="redeem-title mb-2">Redeem Codes</h1>
+                <div class="redeem-subtitle">
+                    Create, monitor and control player reward codes from one place.
+                </div>
+            </div>
+
+            <a class="btn btn-primary btn-lg px-4" href="/admin/gift-codes/create">
+                <i class="bi bi-plus-circle"></i>
+                Create Redeem Code
+            </a>
+        </div>
+    </div>
+
+    {% set total_codes = codes|length %}
+    {% set active_codes = namespace(value=0) %}
+    {% set total_claims = namespace(value=0) %}
+    {% set total_gems = namespace(value=0) %}
+    {% set total_coins = namespace(value=0) %}
+
+    {% for gift in codes %}
+        {% if gift.enabled %}
+            {% set active_codes.value = active_codes.value + 1 %}
+        {% endif %}
+        {% set total_claims.value = total_claims.value + gift.used_count %}
+        {% set total_gems.value = total_gems.value + (gift.rewards.free_hard_currency or 0) %}
+        {% set total_coins.value = total_coins.value + (gift.rewards.soft_currency or 0) %}
+    {% endfor %}
+
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-xl-3">
+            <div class="stat-card">
+                <div class="stat-label">Total Codes</div>
+                <div class="stat-value">{{ total_codes }}</div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="stat-card">
+                <div class="stat-label">Active</div>
+                <div class="stat-value text-success">{{ active_codes.value }}</div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="stat-card">
+                <div class="stat-label">Total Claims</div>
+                <div class="stat-value text-info">{{ total_claims.value }}</div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="stat-card">
+                <div class="stat-label">Configured Rewards</div>
+                <div class="stat-value">{{ total_gems.value }} <span class="fs-6 text-body-secondary">G</span></div>
+                <div class="small text-body-secondary">{{ total_coins.value }} Coins</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {% for gift in codes %}
+        {% set max_uses = gift.max_uses|int %}
+        {% set used = gift.used_count|int %}
+        {% if max_uses > 0 %}
+            {% set usage_percent = ((used / max_uses) * 100)|round|int %}
+            {% if usage_percent > 100 %}{% set usage_percent = 100 %}{% endif %}
+        {% else %}
+            {% set usage_percent = 0 %}
+        {% endif %}
+
+        <div class="col-12 col-xl-6">
+            <div class="redeem-card h-100">
+                <div class="p-4">
+
+                    <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                        <div>
+                            <div class="code-badge mb-2">
+                                <i class="bi bi-ticket-perforated"></i>
+                                {{ gift.code }}
+                            </div>
+                            <h5 class="mb-1">{{ gift.subject or "Redeem Reward" }}</h5>
+                            <div class="small text-body-secondary">
+                                {{ gift.message or "No message configured." }}
+                            </div>
+                        </div>
+
+                        {% if gift.enabled %}
+                            <span class="badge rounded-pill text-bg-success">
+                                <i class="bi bi-check-circle"></i> ACTIVE
+                            </span>
+                        {% else %}
+                            <span class="badge rounded-pill text-bg-secondary">
+                                DISABLED
+                            </span>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        {% if gift.rewards.free_hard_currency %}
+                            <span class="reward-chip gems">
+                                <i class="bi bi-gem"></i>
+                                {{ gift.rewards.free_hard_currency }} Gems
+                            </span>
+                        {% endif %}
+
+                        {% if gift.rewards.soft_currency %}
+                            <span class="reward-chip coins">
+                                <i class="bi bi-coin"></i>
+                                {{ gift.rewards.soft_currency }} Coins
+                            </span>
+                        {% endif %}
+
+                        {% if gift.rewards.creatures %}
+                            <span class="reward-chip items">
+                                <i class="bi bi-bug"></i>
+                                {{ gift.rewards.creatures|length }} Creature reward{{ "s" if gift.rewards.creatures|length != 1 else "" }}
+                            </span>
+                        {% endif %}
+
+                        {% if gift.rewards.action_cards %}
+                            <span class="reward-chip items">
+                                <i class="bi bi-card-list"></i>
+                                {{ gift.rewards.action_cards|length }} Card reward{{ "s" if gift.rewards.action_cards|length != 1 else "" }}
+                            </span>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-between small mb-2">
+                        <span class="text-body-secondary">Usage</span>
+                        <strong>
+                            {{ used }}
+                            /
+                            {{ max_uses if max_uses > 0 else "∞" }}
+                        </strong>
+                    </div>
+
+                    <div class="usage-bar mb-3">
+                        <div class="usage-fill" style="width: {{ usage_percent }}%;"></div>
+                    </div>
+
+                    <div class="row g-2 small text-body-secondary mb-4">
+                        <div class="col-sm-6">
+                            <i class="bi bi-calendar-event"></i>
+                            Start:
+                            {{ gift.start_date or "Immediately" }}
+                        </div>
+                        <div class="col-sm-6">
+                            <i class="bi bi-calendar-x"></i>
+                            End:
+                            {{ gift.end_date or "Never" }}
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        <form method="post" action="/admin/gift-codes/{{ gift.code }}/toggle">
+                            <button class="btn btn-outline-warning btn-sm" type="submit">
+                                <i class="bi bi-power"></i>
+                                {% if gift.enabled %}Disable{% else %}Enable{% endif %}
+                            </button>
+                        </form>
+
+                        <form method="post"
+                              action="/admin/gift-codes/{{ gift.code }}/delete"
+                              onsubmit="return confirm('Delete {{ gift.code }}? This cannot be undone.');">
+                            <button class="btn btn-outline-danger btn-sm" type="submit">
+                                <i class="bi bi-trash3"></i> Delete
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="col-12">
+            <div class="empty-state">
+                <div class="display-5 mb-3">🎁</div>
+                <h4>No redeem codes yet</h4>
+                <p class="text-body-secondary mb-4">
+                    Create your first reward code and it will appear here.
+                </p>
+                <a class="btn btn-primary" href="/admin/gift-codes/create">
+                    <i class="bi bi-plus-circle"></i> Create First Code
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
