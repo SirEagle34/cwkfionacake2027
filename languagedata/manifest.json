@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "languages": [
+    {
+      "code": "AR",
+      "name": "العربية",
+      "file": "AR_Sheet1.txt",
+      "status": "pending"
+    },
+    {
+      "code": "EN",
+      "name": "English",
+      "file": "EN_Sheet1.txt",
+      "status": "pending"
+    },
+    {
+      "code": "ES",
+      "name": "Español",
+      "file": "ES_Sheet1.txt",
+      "status": "pending"
+    },
+    {
+      "code": "FR",
+      "name": "Français",
+      "file": "FR_Sheet1.txt",
+      "status": "pending"
+    },
+    {
+      "code": "IT",
+      "name": "Italiano",
+      "file": "IT_Sheet1.txt",
+      "status": "pending"
+    },
+    {
+      "code": "PT",
+      "name": "Português",
+      "file": "PT_Sheet1.txt",
+      "status": "pending"
+    },
+    {
+      "code": "TR",
+      "name": "Türkçe",
+      "file": "TR_Sheet1.txt",
+      "status": "pending"
+    },
+    {
+      "code": "VI",
+      "name": "Tiếng Việt",
+      "file": "VI_Sheet1.txt",
+      "status": "pending"
+    }
+  ]
+}
