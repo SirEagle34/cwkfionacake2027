@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "databases": [
+    {
+      "id": "local",
+      "name": "LocalInstance",
+      "type": "local",
+      "file": "local_001_cardwarskingdom.db",
+      "enabled": true
+    },
+    {
+      "id": "archive",
+      "name": "Archive",
+      "type": "archive",
+      "directory": "archive",
+      "enabled": true
+    }
+  ]
+}
