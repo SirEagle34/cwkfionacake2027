@@ -1,0 +1,226 @@
+[
+  {
+    "ID": "Store_MAT_MON_T1",
+    "EvoMaterialID": "MAT_MON_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_MON_T2",
+    "EvoMaterialID": "MAT_MON_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_MON_T3",
+    "EvoMaterialID": "MAT_MON_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_MON_T4",
+    "EvoMaterialID": "MAT_MON_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_TUE_T1",
+    "EvoMaterialID": "MAT_TUE_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_TUE_T2",
+    "EvoMaterialID": "MAT_TUE_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_TUE_T3",
+    "EvoMaterialID": "MAT_TUE_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_TUE_T4",
+    "EvoMaterialID": "MAT_TUE_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_WED_T1",
+    "EvoMaterialID": "MAT_WED_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_WED_T2",
+    "EvoMaterialID": "MAT_WED_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_WED_T3",
+    "EvoMaterialID": "MAT_WED_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_WED_T4",
+    "EvoMaterialID": "MAT_WED_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_THU_T1",
+    "EvoMaterialID": "MAT_THU_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_THU_T2",
+    "EvoMaterialID": "MAT_THU_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_THU_T3",
+    "EvoMaterialID": "MAT_THU_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_THU_T4",
+    "EvoMaterialID": "MAT_THU_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_FRI_T1",
+    "EvoMaterialID": "MAT_FRI_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_FRI_T2",
+    "EvoMaterialID": "MAT_FRI_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_FRI_T3",
+    "EvoMaterialID": "MAT_FRI_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_FRI_T4",
+    "EvoMaterialID": "MAT_FRI_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_SAT_T1",
+    "EvoMaterialID": "MAT_SAT_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_SAT_T2",
+    "EvoMaterialID": "MAT_SAT_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_SAT_T3",
+    "EvoMaterialID": "MAT_SAT_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_SAT_T4",
+    "EvoMaterialID": "MAT_SAT_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_SUN_T1",
+    "EvoMaterialID": "MAT_SUN_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_SUN_T2",
+    "EvoMaterialID": "MAT_SUN_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_SUN_T3",
+    "EvoMaterialID": "MAT_SUN_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_SUN_T4",
+    "EvoMaterialID": "MAT_SUN_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_RND1_T1",
+    "EvoMaterialID": "MAT_RND1_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_RND1_T2",
+    "EvoMaterialID": "MAT_RND1_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_RND1_T3",
+    "EvoMaterialID": "MAT_RND1_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_RND1_T4",
+    "EvoMaterialID": "MAT_RND1_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  },
+
+  {
+    "ID": "Store_MAT_EVENT1_T1",
+    "EvoMaterialID": "MAT_EVENT1_T1",
+    "BuyCost": 50,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_EVENT1_T2",
+    "EvoMaterialID": "MAT_EVENT1_T2",
+    "BuyCost": 100,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_EVENT1_T3",
+    "EvoMaterialID": "MAT_EVENT1_T3",
+    "BuyCost": 150,
+    "Quantity": 1
+  },
+  {
+    "ID": "Store_MAT_EVENT1_T4",
+    "EvoMaterialID": "MAT_EVENT1_T4",
+    "BuyCost": 200,
+    "Quantity": 1
+  }
+]

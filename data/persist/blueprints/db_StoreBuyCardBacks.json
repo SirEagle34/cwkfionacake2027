@@ -1,0 +1,317 @@
+[
+  {
+    "ID": "CardBack_14_Store",
+    "CardBackID": "CardBack_14",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_15_Store",
+    "CardBackID": "CardBack_15",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_16_Store",
+    "CardBackID": "CardBack_16",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_17_Store",
+    "CardBackID": "CardBack_17",
+    "BuyCost": 2500,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_18_Store",
+    "CardBackID": "CardBack_18",
+    "BuyCost": 2500,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_19_Store",
+    "CardBackID": "CardBack_19",
+    "BuyCost": 1500,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_20_Store",
+    "CardBackID": "CardBack_20",
+    "BuyCost": 1000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_21_Store",
+    "CardBackID": "CardBack_21",
+    "BuyCost": 1000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_22_Store",
+    "CardBackID": "CardBack_22",
+    "BuyCost": 1500,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_23_Store",
+    "CardBackID": "CardBack_23",
+    "BuyCost": 2500,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_24_Store",
+    "CardBackID": "CardBack_24",
+    "BuyCost": 2500,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_25_Store",
+    "CardBackID": "CardBack_25",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_26_Store",
+    "CardBackID": "CardBack_26",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_27_Store",
+    "CardBackID": "CardBack_27",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_28_Store",
+    "CardBackID": "CardBack_28",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_29_Store",
+    "CardBackID": "CardBack_29",
+    "BuyCost": 4000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_30_Store",
+    "CardBackID": "CardBack_30",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_31_Store",
+    "CardBackID": "CardBack_31",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_32_Store",
+    "CardBackID": "CardBack_32",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_33_Store",
+    "CardBackID": "CardBack_33",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_34_Store",
+    "CardBackID": "CardBack_34",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_35_Store",
+    "CardBackID": "CardBack_35",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_36_Store",
+    "CardBackID": "CardBack_36",
+    "BuyCost": 8000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_37_Store",
+    "CardBackID": "CardBack_37",
+    "BuyCost": 8000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_38_Store",
+    "CardBackID": "CardBack_38",
+    "BuyCost": 8000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_39_Store",
+    "CardBackID": "CardBack_39",
+    "BuyCost": 10000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_40_Store",
+    "CardBackID": "CardBack_40",
+    "BuyCost": 10000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_41_Store",
+    "CardBackID": "CardBack_41",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_42_Store",
+    "CardBackID": "CardBack_42",
+    "BuyCost": 6000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_44_Store",
+    "CardBackID": "CardBack_44",
+    "BuyCost": 10000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_45_Store",
+    "CardBackID": "CardBack_45",
+    "BuyCost": 10000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_46_Store",
+    "CardBackID": "CardBack_46",
+    "BuyCost": 10000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_49_Store",
+    "CardBackID": "CardBack_49",
+    "BuyCost": 20000,
+    "Quantity": 1,
+    "Set": "Route"
+  },
+  {
+    "ID": "CardBack_60_Store",
+    "CardBackID": "CardBack_60",
+    "BuyCost": 12000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_61_Store",
+    "CardBackID": "CardBack_61",
+    "BuyCost": 12000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_62_Store",
+    "CardBackID": "CardBack_62",
+    "BuyCost": 12000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_63_Store",
+    "CardBackID": "CardBack_63",
+    "BuyCost": 12000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_64_Store",
+    "CardBackID": "CardBack_64",
+    "BuyCost": 12000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_121_Store",
+    "CardBackID": "CardBack_121",
+    "BuyCost": 27000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_122_Store",
+    "CardBackID": "CardBack_122",
+    "BuyCost": 27000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_123_Store",
+    "CardBackID": "CardBack_123",
+    "BuyCost": 27000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_124_Store",
+    "CardBackID": "CardBack_124",
+    "BuyCost": 27000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_125_Store",
+    "CardBackID": "CardBack_125",
+    "BuyCost": 27000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_126_Store",
+    "CardBackID": "CardBack_126",
+    "BuyCost": 27000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  },
+  {
+    "ID": "CardBack_127_Store",
+    "CardBackID": "CardBack_127",
+    "BuyCost": 27000,
+    "Quantity": 1,
+    "Set": "Permanent"
+  }
+]

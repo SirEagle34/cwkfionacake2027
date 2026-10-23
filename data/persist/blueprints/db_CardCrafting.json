@@ -1,0 +1,64 @@
+[
+  {
+    "ID": "CRAFT_CARD_001",
+    "CraftItem": "CORN_0009",
+    "CraftItemData": "CardData",
+    "EvolutionShardsCost": 3,
+
+    "Item1": "Card",
+    "Item1Data": "CORN_0008",
+    "Item1Cost": 1,
+
+    "Item2": "Card",
+    "Item2Data": "CORN_0002",
+    "Item2Cost": 1,
+
+    "Item3": "EvoMaterial",
+    "Item3Data": "MAT_TUE_T4",
+    "Item3Cost": 2,
+
+    "Item4": "EvoMaterial",
+    "Item4Data": "MAT_TUE_T3",
+    "Item4Cost": 3
+  },
+  {
+    "ID": "CRAFT_CARD_002",
+    "CraftItem": "NICE_0010",
+    "CraftItemData": "CardData",
+    "EvolutionShardsCost": 3,
+
+    "Item1": "Card",
+    "Item1Data": "PLAINS_0008",
+    "Item1Cost": 1,
+
+    "Item2": "EvoMaterial",
+    "Item2Data": "MAT_SAT_T4",
+    "Item2Cost": 3,
+
+    "Item3": "EvoMaterial",
+    "Item3Data": "MAT_MON_T4",
+    "Item3Cost": 3
+  },
+  {
+    "ID": "CRAFT_CARD_003",
+    "CraftItem": "SAND_0030",
+    "CraftItemData": "CardData",
+    "EvolutionShardsCost": 3,
+
+    "Item1": "Card",
+    "Item1Data": "SAND_0003",
+    "Item1Cost": 1,
+
+    "Item2": "Card",
+    "Item2Data": "SWAMP_0004",
+    "Item2Cost": 1,
+
+    "Item3": "EvoMaterial",
+    "Item3Data": "MAT_COK1_T1",
+    "Item3Cost": 4,
+
+    "Item4": "EvoMaterial",
+    "Item4Data": "MAT_SUN_T1",
+    "Item4Cost": 4
+  }
+]

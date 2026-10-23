@@ -1,14 +1,14 @@
 [
   {
     "ID": "CHANGELOG",
-    "Version": "Version 1.4.2",
-    "Title": "June Update",
-    "Line1": "Spells:\n-Spookylands = New Spells (+36) with New Augment Dungeons"
-    "Line2": "-Leaderboard",
-    "Line3": "Fixes:\n- Important Bugs is Fixed\n-PvP Select Team Modes",
-    "Line4": "Additional Notes:\n-PvP Leagues Increased 30 Total Leauge\n-PvP Select Team Modes been Added",
-    "Line5": "Credits: Krakenfire115, Dark Beast, Red (Gangdz), Rebeca, saya and Lu2312",
-    "Line6": "Last Updated: July 15, 2026",
+    "Version": "Card Wars Kingdom: Resurrected v2.4.3",
+    "Title": "Halloween Update",
+    "Line1": "Balance\n-Fixed Angel of Vanilla, Wall of Sand, and Lady Scarab passives.",
+    "Line2": "New Mechanics\n-Asset Bundles System V2.1\n-APK: 420 MB / ZIP: 320 MB / IPA: 340 MB\n-Reduced download sizes by approximately 200–240 MB.\n-Updated Leaderboard visuals.\n-Monthly Card Back Store rotation (15+ card backs).\n-Permanent availability for Special Own Faction Maniac Card Backs.\n-Halloween Card Backs available only during the Halloween event.\n-Halloween Event Chest added.",
+    "Line3": "Fix Bugs\n-Fixed login panel visual issues.\n-Fixed login popup visuals.\n-Fixed various login panel issues.",
+    "Line4": "New Stuffs\n-Project Renamed: Obsidian Edition → Resurrected\n-Added 5 Vampire creatures.\n-3 creatures have weak passives; 2 have no passives.\n-Balancers plan to rework Vampire creature passives.\n-Halloween skin chests enabled during the Halloween event.\n-Google Login V5.0\n-Google Sign-In verification via Google Login API.\n-Added Skip and normal Register/Login options.\n-Note: Some Google login issues may trigger redeem code problems. Not fully resolved yet.",
+    "Line5": "Credits\n-NORRIS, RED (Gangdz), Apol, Sleepyhead, Kintoru, Aaron, MGHL, Lu2312, and Nevemore (Elvyn). Thanks for everything!",
+    "Line6": "Last Updated: October 17, 2026",
     "Line7": " "
   }
 ]

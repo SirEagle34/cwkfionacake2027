@@ -1,14 +1,14 @@
 [
-  {"Index":0,"Type":"Gems","Quantity":5000,"Rarity":1500,"Name":"5000 Gems","Icon":"Icon_Currency_Hard"},
-  {"Index":1,"Type":"Creature","Pool":"Rare","Quantity":1,"Rarity":300,"Name":"Rare Creature","Icon":"Icon_Prize_Card_0"},
-  {"Index":2,"Type":"Coins","Quantity":1000000,"Rarity":7500,"Name":"1000000 Coins","Icon":"Icon_Currency_Soft"},
-  {"Index":3,"Type":"Gems","Quantity":200,"Rarity":15,"Name":"200 Gems","Icon":"Icon_Currency_Hard"},
-  {"Index":4,"Type":"Coins","Quantity":20000,"Rarity":15,"Name":"20000 Coins","Icon":"Icon_Currency_Soft"},
-  {"Index":5,"Type":"Gems","Quantity":75000,"Rarity":9000,"Name":"75000 Gems","Icon":"Icon_Currency_Hard"},
-  {"Index":6,"Type":"Creature","Pool":"Obsidian","Quantity":1,"Rarity":9990,"Name":"Obsidian Creature","Icon":"Icon_Prize_Card_2"},
-  {"Index":7,"Type":"Coins","Quantity":150000,"Rarity":1500,"Name":"150000 Coins","Icon":"Icon_Currency_Soft"},
-  {"Index":8,"Type":"Gems","Quantity":25000,"Rarity":6500,"Name":"25000 Gems","Icon":"Icon_Currency_Hard"},
-  {"Index":9,"Type":"Gems","Quantity":2000,"Rarity":300,"Name":"2000 Gems","Icon":"Icon_Currency_Hard"},
-  {"Index":10,"Type":"Creature","Pool":"Algebraic","Quantity":1,"Rarity":1500,"Name":"Algebraic Creature","Icon":"Icon_Prize_Card_1"},
-  {"Index":11,"Type":"Coins","Quantity":450000,"Rarity":3000,"Name":"450000 Coins","Icon":"Icon_Currency_Soft"}
+  {"Index":0,"Type":"Coins","Quantity":30000,"Rarity":50,"Name":"30000 Coins","Icon":"Icon_Currency_Hard"},
+  {"Index":1,"Type":"Gems","Quantity":3500,"Rarity":1000,"Name":"3500 Gems","Icon":"Icon_Prize_Card_0"},
+  {"Index":2,"Type":"Creature","Pool":"Rare","Quantity":200,"Rarity":7500,"Name":"Rare Creature","Icon":"Icon_Currency_Soft"},
+  {"Index":3,"Type":"Gems","Quantity":28000,"Rarity":9900,"Name":"28000 Gems","Icon":"Icon_Currency_Hard"},
+  {"Index":4,"Type":"ActionCard","Pool":"Cool_Spell","Quantity":1,"Rarity":400,"Name":"Spell Card","Icon":"Icon_Currency_Soft"},
+  {"Index":5,"Type":"EvoCurrency","Quantity":3,"Rarity":9000,"Name":"3 Evolution Shard","Icon":"Icon_Currency_Hard"},
+  {"Index":6,"Type":"Coins","Quantity":80000,"Rarity":1750,"Name":"80000 Coins","Icon":"Icon_Prize_Card_2"},
+  {"Index":7,"Type":"Gems","Quantity":7500,"Rarity":3500,"Name":"7500 Gems","Icon":"Icon_Currency_Soft"},
+  {"Index":8,"Type":"Creature","Pool":"Algebraic","Quantity":1,"Rarity":6000,"Name":"Algebraic Creature","Icon":"Icon_Currency_Hard"},
+  {"Index":9,"Type":"Coins","Quantity":120000,"Rarity":5000,"Name":"120000 Coins","Icon":"Icon_Currency_Hard"},
+  {"Index":10,"Type":"Gems","Quantity":11000,"Rarity":7000,"Name":"11000  Gems","Icon":"Icon_Prize_Card_1"},
+  {"Index":11,"Type":"EvoCurrency","Quantity":1,"Rarity":3150,"Name":"1 Evolution Shard","Icon":"Icon_Currency_Soft"}
 ]

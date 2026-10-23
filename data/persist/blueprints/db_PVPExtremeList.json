@@ -1,11 +1,5 @@
-{
-  "ID": "ExtremeCreaturesID",
-  "ExtremeListLabel": "Extreme Creatures List",
-  "ExtremeList1": "Sgt Sandwich",
-  "ExtremeList2": "Diamond Dan",
-  "ExtremeList3": "Angel Of Vanilla",
-  "ExtremeList4": "DrStuffenstein",
-  "ExtremeList5": "Pieclops",
-  "ExtremeList6": "Sun King",
-  "ExtremeList7": "Snuggle Tree"
-}
+[{"ID":"ExtremeTeam1","HeroID":"Leader_Jake","CreatureID01":"SandasaurusRex_Awaken","CreatureID02":"SgtSandwich_Base","CreatureID03":"CoolDog_Awaken","CreatureID04":"CornRonin_Awaken","CreatureID05":"PreTeenWolf_Awaken","CreatureID06":"PunkCat_Awaken","CreatureID07":"FieldReaper_Awaken","StarRating":5,"Level":0,"PassiveLevel":1,"RotateDays":7},
+{"ID":"ExtremeTeam2","HeroID":"Leader_Finn","CreatureID01":"CornBall_Awaken","CreatureID02":"CornDog_Awaken","CreatureID03":"HuskerKnight_Awaken","CreatureID04":"CornRonin_Awaken","CreatureID05":"HuskerGiant_Awaken","CreatureID06":"CaptainTaco_Awaken","CreatureID07":"Cornataur_Awaken","StarRating":5,"Level":0,"PassiveLevel":1},
+{"ID":"ExtremeTeam3","HeroID":"Leader_Marceline","CreatureID01":"SandKnight_Awaken","CreatureID02":"SandasaurusRex_Awaken","CreatureID03":"CactusThug_Awaken","CreatureID04":"SandSnake_Awaken","CreatureID05":"AngelOfSand_Awaken","CreatureID06":"LostGolem_Awaken","CreatureID07":"SandShark_Awaken","StarRating":5,"Level":0,"PassiveLevel":1},
+{"ID":"ExtremeTeam4","HeroID":"Leader_PrincessBubblegum","CreatureID01":"Shepard_Awaken","CreatureID02":"HeartAngel_Awaken","CreatureID03":"PirateBear_Awaken","CreatureID04":"Fluffantry_Awaken","CreatureID05":"KingFluff_Awaken","CreatureID06":"MotherFluffBucket_Awaken","CreatureID07":"CottonCutie_Awaken","StarRating":5,"Level":0,"PassiveLevel":1},
+{"ID":"ExtremeTeam5","HeroID":"Leader_Hunson","CreatureID01":"MaiseWalker_Awaken","CreatureID02":"AngelOfDark_Awaken","CreatureID03":"EyeGuy_Awaken","CreatureID04":"BespectacledOgre_Awaken","CreatureID05":"ExtraordinarySpider_Awaken","CreatureID06":"PeaSoupBarfer_Awaken","CreatureID07":"PorcelainGuardian_Awaken","StarRating":5,"Level":0,"PassiveLevel":1}]

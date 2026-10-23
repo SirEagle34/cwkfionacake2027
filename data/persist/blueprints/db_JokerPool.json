@@ -1,0 +1,211 @@
+[
+  {
+    "ID": "ZebraRexJoker",
+    "Cards": [
+      "CORN_0050",
+      "PLAINS_0005",
+      "SAND_0030",
+      "NICE_0013",
+      "SWAMP_0018",
+      "NICE_0008",
+      "NICE_0013",
+      "CORN_0009",
+      "PLAINS_0031",
+      "SAND_0049",
+      "NICE_0022",
+      "SWAMP_0034",
+      "SWAMP_0007",
+      "SWAMP_0011"
+    ]
+  },
+  {
+    "ID": "TEST_0001",
+    "Cards": [
+      "SWAMP_0001",
+      "SWAMP_0002",
+      "SWAMP_0003",
+      "SWAMP_0004",
+      "SWAMP_0005",
+      "SWAMP_0006",
+      "SWAMP_0007",
+      "SWAMP_0008",
+      "SWAMP_0009",
+      "SWAMP_0010",
+      "SWAMP_0011",
+      "SWAMP_0012",
+      "SWAMP_0013",
+      "SWAMP_0014"
+    ]
+  },
+  {
+    "ID": "BMOJoker",
+    "Cards": [
+      "PLAINS_0007",
+      "PLAINS_0008",
+      "PLAINS_0009",
+      "PLAINS_0016",
+      "SPOOKY_0001",
+      "NICE_0014",
+      "NICE_0015",
+      "NICE_0031",
+      "SPOOKY_0037",
+      "SPOOKY_0038",
+      "PLAINS_0036",
+      "PLAINS_0012",
+      "PLAINS_0002",
+      "PLAINS_0010"
+    ]
+  },
+  {
+    "ID": "MarcelineJoker",
+    "Cards": [
+      "SWAMP_0001",
+      "SWAMP_0005",
+      "SWAMP_0003",
+      "SWAMP_0022",
+      "SWAMP_0027",
+      "SWAMP_0026",
+      "SWAMP_0019",
+      "SWAMP_0014",
+      "SWAMP_0020",
+      "SWAMP_0024",
+      "SWAMP_0031",
+      "SWAMP_0011",
+      "SWAMP_0032",
+      "SWAMP_0041"
+    ]
+  },
+  {
+    "ID": "PButlerJoker",
+    "Cards": [
+      "CORN_0008",
+      "PLAINS_0031",
+      "SAND_0054",
+      "NICE_0015",
+      "SPOOKY_0030",
+      "SPOOKY_0026",
+      "PLAINS_0072",
+      "PLAINS_0060",
+      "PLAINS_0005",
+      "SAND_0042",
+      "NICE_0030",
+      "CORN_0021",
+      "SAND_0002",
+      "SPOOKY_0027"
+    ]
+  },
+  {
+    "ID": "WDWolfJoker",
+    "Cards": [
+      "CORN_0027",
+      "CORN_0044",
+      "CORN_0043",
+      "NICE_0044",
+      "NICE_0008",
+      "NICE_0036",
+      "NICE_0021",
+      "NICE_0022",
+      "PLAINS_0008",
+      "PLAINS_0009",
+      "SAND_0011",
+      "SAND_0012",
+      "SAND_0018",
+      "SAND_0028"
+    ]
+  },
+  {
+    "ID": "BasicJoker07",
+    "Cards": [
+      "CORN_0008",
+      "PLAINS_0058",
+      "SAND_0054",
+      "NICE_0015",
+      "SPOOKY_0030",
+      "SPOOKY_0026",
+      "PLAINS_0072",
+      "PLAINS_0060",
+      "SNOW_0006",
+      "SAND_0042",
+      "NICE_0030",
+      "CORN_0021",
+      "SAND_0002",
+      "SPOOKY_0027"
+    ]
+  },
+  {
+    "ID": "BasicJoker08",
+    "Cards": [
+      "NICE_0018",
+      "NICE_0021",
+      "SPOOKY_0036",
+      "SPOOKY_0034",
+      "SPOOKY_0014",
+      "SWAMP_0018",
+      "SPOOKY_0007",
+      "SWAMP_0008",
+      "SWAMP_0035",
+      "SPOOKY_0001",
+      "MAGMA_0029",
+      "CORN_0059",
+      "SPOOKY_0003",
+      "SPOOKY_0010"
+    ]
+  },
+  {
+    "ID": "BasicJoker09",
+    "Cards": [
+      "CORN_0027",
+      "CORN_0029",
+      "CORN_0034",
+      "CORN_0059",
+      "CORN_0030",
+      "CORN_0035",
+      "CORN_0033",
+      "CORN_0060",
+      "CORN_0061",
+      "CORN_0050",
+      "CORN_0073",
+      "CORN_0070",
+      "CORN_0069",
+      "CORN_0068"
+    ]
+  },
+  {
+    "ID": "BasicJoker10",
+    "Cards": [
+      "SPOOKY_0001",
+      "SPOOKY_0008",
+      "SPOOKY_0010",
+      "SPOOKY_0014",
+      "SPOOKY_0021",
+      "SPOOKY_0035",
+      "SWAMP_0018",
+      "SWAMP_0063",
+      "SWAMP_0030",
+      "SWAMP_0056",
+      "SWAMP_0011",
+      "SWAMP_0032",
+      "SPOOKY_0013",
+      "SPOOKY_0025"
+    ]
+  },
+  {
+    "ID": "BasicJoker11",
+    "Cards": [
+      "PLAINS_0018",
+      "PLAINS_0006",
+      "SPOOKY_0010",
+      "SPOOKY_0029",
+      "SPOOKY_0041",
+      "SPOOKY_0027",
+      "MAGMA_0006",
+      "SPOOKY_0042",
+      "SPOOKY_0030",
+      "PLAINS_0072",
+      "SPOOKY_0015",
+      "SPOOKY_0026",
+      "SPOOKY_0033",
+      "PLAINS_0060"
+    ]
+  }
+]

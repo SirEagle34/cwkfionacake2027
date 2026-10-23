@@ -1,0 +1,362 @@
+[
+  {
+    "ID": "STORE_0001",
+    "CreatureID": "SnuggleTree_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0002",
+    "CreatureID": "BaldingMan_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0003",
+    "CreatureID": "BogFrogBomb_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0004",
+    "CreatureID": "CactusBall_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0005",
+    "CreatureID": "CoolDog_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0006",
+    "CreatureID": "CornBall_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0007",
+    "CreatureID": "CornDog_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0008",
+    "CreatureID": "CornEyeBat_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0009",
+    "CreatureID": "SoftEyeling_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0010",
+    "CreatureID": "CornWorm_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0011",
+    "CreatureID": "CottonEyeBat_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0012",
+    "CreatureID": "DustBunny_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0013",
+    "CreatureID": "Flufflapillar_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0014",
+    "CreatureID": "FlySwatter_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0015",
+    "CreatureID": "FunGuy_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0016",
+    "CreatureID": "KnifeKite_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0017",
+    "CreatureID": "Ninja_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0018",
+    "CreatureID": "SandSnake_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0019",
+    "CreatureID": "WizardElf_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0020",
+    "CreatureID": "GreenMermaid_Base",
+    "BuyCost": "450",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0021",
+    "CreatureID": "Nefertiti_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0022",
+    "CreatureID": "AncientScholar_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0023",
+    "CreatureID": "ArcherDan_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0024",
+    "CreatureID": "ArmourOfBooks_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0025",
+    "CreatureID": "PoppaCorn_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0026",
+    "CreatureID": "CactusThug_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0027",
+    "CreatureID": "BeachMum_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0028",
+    "CreatureID": "Cow_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0029",
+    "CreatureID": "DollyLlama_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0030",
+    "CreatureID": "DonkeyKhan_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0031",
+    "CreatureID": "DrDeath_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0032",
+    "CreatureID": "MaiseWalker_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0033",
+    "CreatureID": "AngelEye_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0034",
+    "CreatureID": "ethanallfire_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0035",
+    "CreatureID": "EnlightenedBaldMan_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0036",
+    "CreatureID": "CornWall_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0037",
+    "CreatureID": "HuskerGiant_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0038",
+    "CreatureID": "HuskerKnight_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0039",
+    "CreatureID": "HuskerTanker_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0040",
+    "CreatureID": "KnightOfObesity_Base",
+    "BuyCost": "1250",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0041",
+    "CreatureID": "AlbinoEyeBat_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0042",
+    "CreatureID": "AngelOfDark_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0043",
+    "CreatureID": "AngelOfSand_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0044",
+    "CreatureID": "AngelOfVanilla_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0045",
+    "CreatureID": "HeadphoneJerk_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0046",
+    "CreatureID": "BanSheQueen_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0047",
+    "CreatureID": "Batclops_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0048",
+    "CreatureID": "BespectacledOgre_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0049",
+    "CreatureID": "BogBanSheAngel_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0050",
+    "CreatureID": "SunKing_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0051",
+    "CreatureID": "LostGolem_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0052",
+    "CreatureID": "SandShark_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0053",
+    "CreatureID": "KingFluff_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0054",
+    "CreatureID": "ChestBurster_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0055",
+    "CreatureID": "ColonelChicken_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0056",
+    "CreatureID": "CottonSaurusRex_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0057",
+    "CreatureID": "Cornataur_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0058",
+    "CreatureID": "CornLord_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0059",
+    "CreatureID": "ShamanWoad_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  },
+  {
+    "ID": "STORE_0060",
+    "CreatureID": "SteakChop_Base",
+    "BuyCost": "3000",
+    "Quantity": "1"
+  }
+]
